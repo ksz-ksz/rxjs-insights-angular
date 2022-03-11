@@ -2,20 +2,25 @@
 
 <p>
   Click one of the buttons below to run some rxjs code. Open the browser console
-  to see the observables and/or subscribers and start playing around.
+  to see the observables, subscribers and event.
 </p>
 
 <p>
-  Tip: expand the "More" button next to the logged subscriber and invoke the
-  property getter of "inspect events flow".
+  TIP! Expand the "More" object at the end of the log line and invoke the
+  property getters to get an interactive experience. For example, try clicking
+  the "inspect events flow" getter.
 </p>
 
 <p>
-  Exercise: can you guess why the "Async example" listing looks different when it's run outside of the NgZone?
+  EXERCISE! Can you guess why the "Async example" listing looks different when
+  it's run outside of the NgZone? Try to figure it out by using the interactive
+  console :)
 </p>
 
 <button (click)="runSimple()">Simple example</button>
 <button (click)="runComplex()">Complex example</button>
 <button (click)="runAsync()">Async example</button>
-<button (click)="runAsyncOutsideAngular()">Async example (outside NgZone)</button>
+<button (click)="runAsyncOutsideAngular()">
+  Async example (outside NgZone)
+</button>
 <button (click)="runShared()">Shared example</button>

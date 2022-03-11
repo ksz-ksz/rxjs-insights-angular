@@ -1327,15 +1327,35 @@ __webpack_require__.r(__webpack_exports__);
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
+function getPrototypeChainLength(superClass, subClass) {
+  let length = 0;
+  let currentClass = subClass;
+  while (true) {
+    if (superClass === currentClass) {
+      return length;
+    } else {
+      currentClass = Reflect.getPrototypeOf(currentClass);
+      if (currentClass === void 0) {
+        return 0;
+      } else {
+        length++;
+      }
+    }
+  }
+}
+__name(getPrototypeChainLength, "getPrototypeChainLength");
 function createInstrumentConstructor(context) {
   return /* @__PURE__ */ __name(function instrumentConstructor(name, target) {
-    return new Proxy(target, {
+    const proxy = new Proxy(target, {
       construct(target2, args, newTarget) {
+        const targetName = target2 === newTarget ? name : newTarget.name;
+        const prototypeChainLength = getPrototypeChainLength(proxy, newTarget);
         const observable = Reflect.construct(target2, args, newTarget);
-        const declarationRef = context.recorder.declarationRef(name, target2, args, context.locator.locate(1));
+        const declarationRef = context.recorder.declarationRef(targetName, target2, args, context.locator.locate(prototypeChainLength + 1));
         return (0,_instrument_observable__WEBPACK_IMPORTED_MODULE_0__.instrumentObservable)(context, observable, declarationRef);
       }
     });
+    return proxy;
   }, "instrumentConstructor");
 }
 __name(createInstrumentConstructor, "createInstrumentConstructor");
@@ -4530,14 +4550,16 @@ class StacktraceLocator {
   }
 
   getOriginalLocation(generatedLocation) {
+    const cacheKey = `${generatedLocation?.file}:${generatedLocation?.line}:${generatedLocation?.column}`;
+
     try {
       if (generatedLocation === void 0) {
         return Promise.resolve(void 0);
-      } else if (this.originalLocationsCache.hasOwnProperty(generatedLocation.toString())) {
-        return this.originalLocationsCache[generatedLocation.toString()];
+      } else if (this.originalLocationsCache.hasOwnProperty(cacheKey)) {
+        return this.originalLocationsCache[cacheKey];
       } else {
         const originalLocationPromise = this.resolveOriginalLocation(generatedLocation);
-        this.originalLocationsCache[generatedLocation.toString()] = originalLocationPromise;
+        this.originalLocationsCache[cacheKey] = originalLocationPromise;
         return originalLocationPromise;
       }
     } catch (e) {

@@ -1,1 +1,1 @@
-{"version":3,"file":"styles.css","mappings":";;;AAAA,8EAA8E","sources":["./src/styles.css"],"sourcesContent":["/* You can add global styles to this file, and also import other style files */\n"],"names":[],"sourceRoot":"webpack:///"}
+{"version":3,"file":"styles.css","mappings":";;;;;;;AAEA;IACI,iCAAiC;AACrC,C","sources":["./src/styles.css"],"sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');\n\nbody {\n    font-family: 'Roboto', sans-serif;\n}"],"names":[],"sourceRoot":"webpack:///"}

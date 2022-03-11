@@ -61,13 +61,13 @@ AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, "RxJS Insights Angular Demo");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](3, " Click one of the buttons below to run some rxjs code. Open the browser console to see the observables and/or subscribers and start playing around.\n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](3, " Click one of the buttons below to run some rxjs code. Open the browser console to see the observables, subscribers and event.\n");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, " Tip: expand the \"More\" button next to the logged subscriber and invoke the property getter of \"inspect events flow\".\n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, " TIP! Expand the \"More\" object at the end of the log line and invoke the property getters to get an interactive experience. For example, try clicking the \"inspect events flow\" getter.\n");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](7, " Exercise: can you guess why the \"Async example\" listing looks different when it's run outside of the NgZone?\n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](7, " EXERCISE! Can you guess why the \"Async example\" listing looks different when it's run outside of the NgZone? Try to figure it out by using the interactive console :)\n");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "button", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function AppComponent_Template_button_click_8_listener() { return ctx.runSimple(); });
@@ -83,7 +83,7 @@ AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](14, "button", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function AppComponent_Template_button_click_14_listener() { return ctx.runAsyncOutsideAngular(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](15, "Async example (outside NgZone)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](15, " Async example (outside NgZone)\n");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "button", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function AppComponent_Template_button_click_16_listener() { return ctx.runShared(); });
