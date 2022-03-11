@@ -1,26 +1,95 @@
-<h1>RxJS Insights Angular Demo</h1>
+<header>
+  <mat-toolbar color="primary">
+    <span>RxJS Insights Angular Demo</span>
+  </mat-toolbar>
+</header>
+<main class="main">
+  <mat-card class="card">
+    <p>
+      Click one of the buttons below to run some rxjs code. Open the browser console
+      to see the observables, subscribers and event.
+    </p>
+    <p>
+      TIP! Expand the "More" object at the end of the log line and invoke the
+      property getters to get an interactive experience. For example, try clicking
+      the "inspect events flow" getter.
+    </p>
+    <p>
+      EXERCISE! Can you guess why the "Async example" listing looks different when
+      it's run outside of the NgZone? Try to figure it out by using the interactive
+      console :)
+    </p>
+    <mat-card-actions align="end">
+      <a mat-button href="https://github.com/ksz-ksz/rxjs-insights-angular">Source code of this app</a>
+      <a mat-button href="https://github.com/ksz-ksz/rxjs-insights">Source code of rxjs-insights</a>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-title>Simple example</mat-card-title>
+    <pre><code>
+of(1, 2, 3)
+.pipe(
+  map((x) => x * x),
+  filter((x) => x % 2 !== 0)
+)
+.subscribe();
+    </code></pre>
+    <mat-card-actions align="end">
+      <button mat-button (click)="runSimple()">RUN</button>
+    </mat-card-actions>
+  </mat-card>
 
-<p>
-  Click one of the buttons below to run some rxjs code. Open the browser console
-  to see the observables, subscribers and event.
-</p>
+  <mat-card class="card">
+    <mat-card-title>Complex example</mat-card-title>
+    <pre><code>
+zip([of(1, 2, 3), of('a', 'b', 'c')])
+.pipe(
+  switchMap(([num, str]) => {{'{'}}
+    return new Observable((observer) => {{'{'}}
+      for (let i = 0; i < num; i++) {{'{'}}
+        observer.next(str);
+      }
+      observer.complete();
+    });
+  })
+)
+.subscribe();
+    </code></pre>
+    <mat-card-actions align="end">
+      <button mat-button (click)="runComplex()">RUN</button>
+    </mat-card-actions>
+  </mat-card>
 
-<p>
-  TIP! Expand the "More" object at the end of the log line and invoke the
-  property getters to get an interactive experience. For example, try clicking
-  the "inspect events flow" getter.
-</p>
+  <mat-card class="card">
+    <mat-card-title>Shared example</mat-card-title>
+    <pre><code>
+const shared = scheduled([1, 2, 3], asapScheduler).pipe(share());
+shared.pipe(map((x) => 1 / x)).subscribe();
+shared.pipe(map((x) => x / 3)).subscribe();
+    </code></pre>
+    <mat-card-actions align="end">
+      <button mat-button (click)="runShared()">RUN</button>
+    </mat-card-actions>
+  </mat-card>
 
-<p>
-  EXERCISE! Can you guess why the "Async example" listing looks different when
-  it's run outside of the NgZone? Try to figure it out by using the interactive
-  console :)
-</p>
+  <mat-card class="card">
+    <mat-card-title>Async example</mat-card-title>
+    <pre><code>
+interval(100).pipe(take(10)).subscribe();
+    </code></pre>
+    <mat-card-actions align="end">
+      <button mat-button (click)="runAsync()">RUN</button>
+    </mat-card-actions>
+  </mat-card>
 
-<button (click)="runSimple()">Simple example</button>
-<button (click)="runComplex()">Complex example</button>
-<button (click)="runAsync()">Async example</button>
-<button (click)="runAsyncOutsideAngular()">
-  Async example (outside NgZone)
-</button>
-<button (click)="runShared()">Shared example</button>
+  <mat-card class="card">
+    <mat-card-title>Async example (outside NgZone)</mat-card-title>
+    <pre><code>
+interval(100).pipe(take(10)).subscribe();
+    </code></pre>
+    <mat-card-actions align="end">
+      <button mat-button (click)="runAsyncOutsideAngular()">RUN</button>
+    </mat-card-actions>
+  </mat-card>
+</main>
+
