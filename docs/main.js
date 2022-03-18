@@ -211,38 +211,6 @@ const environment = {
 
 /***/ }),
 
-/***/ 5497:
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _install__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./install */ 7296);
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main */ 4431);
-
-
-
-
-/***/ }),
-
-/***/ 7296:
-/*!************************!*\
-  !*** ./src/install.ts ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _rxjs_insights_rxjs7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @rxjs-insights/rxjs7 */ 6328);
-/* harmony import */ var _rxjs_insights_console__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @rxjs-insights/console */ 4441);
-
-
-(0,_rxjs_insights_rxjs7__WEBPACK_IMPORTED_MODULE_0__.install)();
-(0,_rxjs_insights_console__WEBPACK_IMPORTED_MODULE_1__.install)();
-
-
-/***/ }),
-
 /***/ 4431:
 /*!*********************!*\
   !*** ./src/main.ts ***!
@@ -270,7 +238,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstr
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["vendor"], () => (__webpack_exec__(5497)));
+/******/ __webpack_require__.O(0, ["vendor"], () => (__webpack_exec__(4431)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
